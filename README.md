@@ -20,6 +20,7 @@ exit
 
 2. Create ACL
 ```
+sqlplus /nolog
 conn /as sysdba
 BEGIN
   DBMS_NETWORK_ACL_ADMIN.create_acl (
@@ -40,6 +41,7 @@ begin
     upper_port  => NULL);    
 end; 
 /
+exit;
 ```
 
 3. Create Procedure and Function
@@ -115,12 +117,16 @@ begin
       utl_http.end_response(res);
   end;
 end dedi_cek_data2;
+exit;
 ```
 
 4. Test data
 
 --test1
 ```
+sqlplus /nolog
+conn tst
+
 SQL> select dedi_cek_data2('sample') from dual;
 ```
 
