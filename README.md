@@ -11,12 +11,16 @@ Note:
 
 1. Grant ACL
 ```
+sqlplus /nolog
+conn /as sysdba
 grant execute on utl_http to tst;
 grant execute on dbms_lock to tst;
+exit
 ```
 
 2. Create ACL
 ```
+conn /as sysdba
 BEGIN
   DBMS_NETWORK_ACL_ADMIN.create_acl (
     acl          => 'dedi_utl_http.xml', 
@@ -40,6 +44,9 @@ end;
 
 3. Create Procedure and Function
 ```
+sqlplus /nolog
+conn tst
+
 create or replace procedure dedi_cek_data
 ( vData in varchar2
 --,vUmur number
