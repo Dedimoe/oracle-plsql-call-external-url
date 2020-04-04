@@ -3,7 +3,11 @@ oracle-plsql-call-external-url
 
 Note: 
 -using oracle 11gr2
+
 -schema: TST
+
+-all command on oracle sqlplus 
+
 
 1. Grant ACL
 ```
@@ -70,7 +74,7 @@ begin
 end dedi_cek_data;
 /
 
-create or replace function dedi_cek_nip
+create or replace function dedi_cek_data2
 ( vData in varchar2
 --,vUmur number
 ) return varchar2
@@ -109,7 +113,16 @@ end dedi_cek_data2;
 4. Test data
 
 ```
-select dedi_cek_data2('sample') from dual;
+SQL> select dedi_cek_data2('sample') from dual;
+```
+
+result:
+```
+{"data":"data sample"}
+```
+```
+SQL> set serverout on
+exec dedi_cek_data('sample`);
 ```
 
 result:
