@@ -112,6 +112,7 @@ end dedi_cek_data2;
 
 4. Test data
 
+--test1
 ```
 SQL> select dedi_cek_data2('sample') from dual;
 ```
@@ -120,9 +121,11 @@ result:
 ```
 {"data":"data sample"}
 ```
+
+--test2
 ```
 SQL> set serverout on
-exec dedi_cek_data('sample`);
+SQL> exec dedi_cek_data('sample`);
 ```
 
 result:
